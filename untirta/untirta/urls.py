@@ -20,10 +20,12 @@ from feb.views import Feb
 from faperta.views import Faperta
 from fk.views import Fk
 from fh.views import Fh
+from . import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index),
     path('fkip/', Fkip, name="fkip"),
     path('feb/', Feb, name="feb"),
     path('faperta/', Faperta, name="faperta"),
