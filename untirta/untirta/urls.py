@@ -20,6 +20,10 @@ from feb.views import Feb
 from faperta.views import Faperta
 from fk.views import Fk
 from fh.views import Fh
+from univ.views import Univ
+from fisip.views import Fisip 
+from ft.views import Ft
+from pascasarjana.views import Pascasarjana
 from . import views
 
 
@@ -31,5 +35,9 @@ urlpatterns = [
     path('faperta/', Faperta, name="faperta"),
     path('fk/', Fk, name="fk"),
     path('fh/', Fh, name="fh"),
+    path('univ/', Univ, name="univ"),
+    path('fisip/', Fisip, name="fisip"),
+    path('ft/', Ft, name="ft"),
+    path('pascasarjana/', Pascasarjana, name="pascasarjana"),
 
 ]
