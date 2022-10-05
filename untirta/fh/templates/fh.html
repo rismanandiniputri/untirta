@@ -1,21 +1,99 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FK</title>
-</head>
-<body>
+<center>
     <h1>FAKULTAS HUKUM</h1>
+    <img src="\static\image\fh.png" height="200px">
+            <h2>Tentang Fakultas Hukum</h2> 
+            <p style="font-family: 'times new roman'">Fakultas Hukum Universitas Sultan Ageng Tirtayasa Banten berdiri tahun 1981, tepatnya pada tanggal 1 Oktober 1981 dengan status sebagai STIH Serang yan bertempat di Kresidenan Banten, Jl. K.H. Sam’un dan merupakan embrio lahirnya Universitas Sultan Ageng Tirtayasa Banten. Mulai tahun 1984, STIH Serang di integrasi sesuai dengan SK Mendikbud No. 0596/0/1984, menjadi Fakultas Hukum Universitas Sultan Ageng Tirtayasa Banten, yang bertempat di Jl. Raya Jakarta KM. 4 Pakupatan – Serang.
+
+                Fakultas Hukum pada tahun 1994 memperoleh status terdaftar berdasarkan SK Mendikbud No. 0597/0/1984. Pada tahun 1994 Fakultas Hukum kembali memperoleh status penetapan terdaftar kembali berdasarkan SK Ditjen Pendidikan Tinggi No. 059/Dikti/Kep./1994. Pada tahun 2000 Fakultas Hukum memperoleh status terakreditasi dengan peringkat B, berdasarkan SK BAN-PT No. 19/BAN-PT/AK-IV/VIII/2000, dengan adanya SK Akreditasi tersebut maka Fakultas Hukum dapat menyelenggarakan proses pembelajaran secara mandiri.
+                
+                Pada tahun 2001 status Fakultas Hukum menjadi Fakultas Hukum dari Universitas Sultan Ageng Tirtayasa Banten dengan Status Negeri, berdasarkan Kepres No. 32/2001, hingga saat ini dan beralamat di Jl. Raya Jakarta KM. 4 Pakupatan–Serang. Saat ini  fakultas Hukum terakreditasi peringkat B berdasarkan SK. No. 186/SK/BAN-PT/Ak-SURV/S/VI/2014 tertanggal 28 Juni 2014.
+                
+                Fakultas Hukum Universitas Sultan Ageng Tirtayasa (FH Untirta) saat ini telah berupaya menata diri menjadikan dirinya salah satu Perguruan Tinggi Negeri yang dikenal pada skala nasional. Dalam Perjalanannya sebagai Perguruan Tinggi Negeri yang baru beralih dari PTS pada tahun 2001, Fakultas Hukum Untirta telah banyak melakukan perubahan dengan mengacu pada sistem pengelolaan Perguruan Tinggi Negeri.
+                
+                Perbaikan proses dan kualitas pembelajaran serta mutu lulusan merupakan prioritas utama yang dilakukan pada saat ini. Sejalan dengan tuntutan masyarakat akan mutu lulusan yang semakin tinggi, Fakultas Hukum Universitas Sultan Ageng Tirtayasa berusaha untuk tetap menjaga kualitas proses belajar mengajar yang menjadi tugas utamanya melalui pengelolaan lembaga yang efektif dan efisien.</p>
+        </center>
     <p>Tersedia Jurusan :</p>
     <ul>
-        <li>Ilmu Hukum</li>
-        
+        <li>Ilmu Hukum</li>    
     </ul>
-</body>
-</html>
+
+    <h1>Daftar Nama Dosen FH</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for dosen in dataDosen %}
+        <tr>
+            <td>{{ dosen.nip }}</td>
+            <td>{{ dosen.nama }}</td>
+            <td>{{ dosen.email }}</td>
+            <td>{{ dosen.tanggal_lahir }}</td>
+            <td>{{ dosen.foto }}</td>
+            <td>{{ dosen.fakultas }}</td>
+            <td>{{ dosen.prodi }}</td>
+            <td>{{ dosen.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Daftar Nama Staff FH</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Unit</th>
+            <th>Alamat</th>
+        </tr>
+        {% for staff in dataStaff %}
+        <tr>
+            <td>{{ staff.nip }}</td>
+            <td>{{ staff.nama }}</td>
+            <td>{{ staff.email }}</td>
+            <td>{{ staff.tanggal_lahir }}</td>
+            <td>{{ staff.foto }}</td>
+            <td>{{ staff.unit }}</td>
+            <td>{{ staff.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Daftar Nama Mahasiswa FH</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for mahasiswa in dataMahasiswa %}
+        <tr>
+            <td>{{ mahasiswa.nim }}</td>
+            <td>{{ mahasiswa.nama }}</td>
+            <td>{{ mahasiswa.email }}</td>
+            <td>{{ mahasiswa.tanggal_lahir }}</td>
+            <td>{{ mahasiswa.foto }}</td>
+            <td>{{ mahasiswa.fakultas }}</td>
+            <td>{{ mahasiswa.prodi }}</td>
+            <td>{{ mahasiswa.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

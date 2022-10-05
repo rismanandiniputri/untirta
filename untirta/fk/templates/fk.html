@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FK</title>
-</head>
-<body>
+<center>
     <h1>FAKULTAS KEDOKTERAN</h1>
+    <img src="\static\image\fk.png" height="200px">
+            <h2>Tentang Fakultas Kedokteran</h2> 
+            <p style="font-family: 'times new roman'">Program Studi S1 Pendidikan Dokter Universitas Sultan Ageng Tirtayasa (PSPD UNTIRTA) merupakan satu-satunya program studi pendidikan dokter Perguruan Tinggi Negeri (PTN) yang terletak di Provinsi Banten. PSPD UNTIRTA berdiri sejak tahun 2019 dengan kampus utamanya berada di Kawasan Industri Cilegon Banten. Program studi ini merupakan wujud kepedulian UNTIRTA terhadap kesehatan dan pemenuhan kebutuhan dokter di Indonesia, khususnya provinsi Banten.
+
+                Sasaran PSPD UNTIRTA adalah menghasilkan dokter layanan primer dengan keunggulan di bidang okupasi yang berkarakter dan berdaya saing di kawasan ASEAN, dengan memberikan pengalaman belajar yang baik untuk mencapai standar kompetensi dokter dan membangun rumah sakit pendidikan serta jejaringnya di wilayah provinsi banten. PSPD UNTIRTA juga memiliki tujuan untuk meningkatkan taraf kesehatan masyarakat dengan menjamin penyelengaraan suatu pendidikan kedokteran yang mempunyai  pengetahuan, keterampilan, dan sikap untuk melakukan profesi kedokteran dalam suatu sistem pelayanan yang sesuai dengan kebijaksanaan umum pemerintah sehingga, nantinya pendidikan kedokteran akan membekali lulusan dengan pengetahuan yang menyeluruh tentang kedokteran dan kesehatan.
+                
+                Dalam mencapai sasaran dan tujuannya PSPD UNTIRTA di ampu oleh Fakultas Kedokteran Universitas Indonesia (FK UI), dengan standar yang sama yang diberlakukan di FK UI, sehingga nantinya diharapkan lulusan PSPD UNTIRTA dapat bersaing dan setara dengan lulusan kedokteran universitas ternama di Indonesia.</p>
+        </center>
     <p>Tersedia Jurusan :</p>
     <ul>
         <li>Kedokteran</li>
@@ -19,6 +21,79 @@
         <li>Diploma 3 Keperawatan</li>
         <li>Ilmu Keolahragaan</li>
     </ul>
-</body>
-</html>
+
+    <h1>Daftar Nama Dosen FK</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for dosen in dataDosen %}
+        <tr>
+            <td>{{ dosen.nip }}</td>
+            <td>{{ dosen.nama }}</td>
+            <td>{{ dosen.email }}</td>
+            <td>{{ dosen.tanggal_lahir }}</td>
+            <td>{{ dosen.foto }}</td>
+            <td>{{ dosen.fakultas }}</td>
+            <td>{{ dosen.prodi }}</td>
+            <td>{{ dosen.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Daftar Nama Staff FK</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Unit</th>
+            <th>Alamat</th>
+        </tr>
+        {% for staff in dataStaff %}
+        <tr>
+            <td>{{ staff.nip }}</td>
+            <td>{{ staff.nama }}</td>
+            <td>{{ staff.email }}</td>
+            <td>{{ staff.tanggal_lahir }}</td>
+            <td>{{ staff.foto }}</td>
+            <td>{{ staff.unit }}</td>
+            <td>{{ staff.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Daftar Nama Mahasiswa FK</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for mahasiswa in dataMahasiswa %}
+        <tr>
+            <td>{{ mahasiswa.nim }}</td>
+            <td>{{ mahasiswa.nama }}</td>
+            <td>{{ mahasiswa.email }}</td>
+            <td>{{ mahasiswa.tanggal_lahir }}</td>
+            <td>{{ mahasiswa.foto }}</td>
+            <td>{{ mahasiswa.fakultas }}</td>
+            <td>{{ mahasiswa.prodi }}</td>
+            <td>{{ mahasiswa.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

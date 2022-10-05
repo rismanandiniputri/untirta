@@ -1,22 +1,119 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FISIP</title>
-</head>
-<body>
+<center>
     <h1>FAKULTAS ILMU SOSIAL DAN ILMU POLITIK</h1>
+    <img src="\static\image\fisip.png" height="200px">
+            <h2>Tentang Fakultas Ilmu Sosial dan Ilmu Politik</h2> 
+            <p style="font-family: 'times new roman'">Pada saat Universitas Sultan Ageng Tirtayasa (Untirta) sedang mempersiapkan pengalihan status negeri secara utuh dan menyeluruh dengan ditandainya pengalihan aset dan pengelolaan sumber daya dari Yayasan Pendidikan Tirtayasa kepada pemerintah yang dilaksanakan paling lama dalam kurun waktu tiga tahun. Maka pada tanggal 10 Juni 2003 dikeluarkan Surat Keputusan dari DIRJEN DIKTI DEPDIKNAS dengan nomor 1179/D/ T/2003 tentang izin operasional program studi Ilmu Administrasi Negara dan Ilmu Komunikasi, seiring dengan operasional program studi maka Fakultas Ilmu Sosial dan Ilmu Politik didirikan pada tahun akademik 2002/2003  yang mendapat legitimasi menjadi bagian dari Untirta dengan surat keputusan nomor 124/0/2004 sesuai dengan SOTK.
+
+                Pada tanggal 1 Februari 2006 telah dikeluarkan SK No. 295/D/T/2006 tentang Perpanjangan izin penyelenggaraan Program studi  Ilmu Administrasi Negara dan Ilmu Komunikasi selama 4 tahun
+                
+                FISIP Untirta terus berpacu dan berkembang untuk berusaha mensejajarkan diri dengan fakultas yang lebih dulu berdiri dengan mengeluarkan jurus-jurus strategis baik dibidang pendidikan, pengajaran, pengabdian masyarakat, sarana dan prasarana sebagai wujud dari Tri Dharma Perguruan Tinggi. Hal ini dibuktikan dengan diselenggarakan berbagai kegiatan dan beberapa sarana untuk meningkatkan kualitas baik dosen, mahasiswa maupun karyawan. Antara lain :
+                
+                a)    LAN (Laboraturium Administrasi Negara)
+                b)    Laboratorium Komunikasi
+                –    Produksi Siaran TV dan Film
+                –    Produksi Siaran Radio
+                –    Multi Media dan Komputer
+                –    Fotografi
+                c)    Program Beasiswa Dosen untuk melanjutkan studi S2 dan S3;
+                d)    Program Layanan Akademik;
+                –    Program Layanan Mahasiswa (mengakses KHS dan KRS dan sebagainya
+                –    Program Administrasi Akademik (akses data pimpinan, mahasiswa, nilai, prestasi akademik dan sebagaimana)
+                e)    Mengikuti diklat kepemimpinan bagi karyawan;
+                f)    Penyelenggaran Diklat Kompetensi Dosen Muda;
+                g)    Seminar baik regional, nasional maupun internasional
+                h)    Program Beasiswa bagi mahasiswa yang berprestasi dan tidak mampu :
+                –    PPA (Pengembangan Prestasi Akademik)
+                –    BBM (Bantuan Belajar Mahasiswa)
+                –    BBPM (Beasiswa Bantuan Pendidikan Mahasiswa)
+                –    Beasiswa Pendidikan dari DIKNAS
+                –    Beasiswa BAZDA Prov. Banten
+                –    Beasiswa Tugas Akhir (Skripsi)
+                –    Beasiswa Supersemar dari Yayasan Supersemar</p>
+        </center>
     <p>Tersedia Jurusan :</p>
     <ul>
         <li>Administrasi Publik</li>
         <li>Ilmu Komunikasi</li>
         <li>Ilmu Pemerintahan</li>
     </ul>
-</body>
-</html>
+
+    <h1>Daftar Nama Dosen FISIP</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for dosen in dataDosen %}
+        <tr>
+            <td>{{ dosen.nip }}</td>
+            <td>{{ dosen.nama }}</td>
+            <td>{{ dosen.email }}</td>
+            <td>{{ dosen.tanggal_lahir }}</td>
+            <td>{{ dosen.foto }}</td>
+            <td>{{ dosen.fakultas }}</td>
+            <td>{{ dosen.prodi }}</td>
+            <td>{{ dosen.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Daftar Nama Staff FISIP</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Unit</th>
+            <th>Alamat</th>
+        </tr>
+        {% for staff in dataStaff %}
+        <tr>
+            <td>{{ staff.nip }}</td>
+            <td>{{ staff.nama }}</td>
+            <td>{{ staff.email }}</td>
+            <td>{{ staff.tanggal_lahir }}</td>
+            <td>{{ staff.foto }}</td>
+            <td>{{ staff.unit }}</td>
+            <td>{{ staff.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Daftar Nama Mahasiswa FISIP</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for mahasiswa in dataMahasiswa %}
+        <tr>
+            <td>{{ mahasiswa.nim }}</td>
+            <td>{{ mahasiswa.nama }}</td>
+            <td>{{ mahasiswa.email }}</td>
+            <td>{{ mahasiswa.tanggal_lahir }}</td>
+            <td>{{ mahasiswa.foto }}</td>
+            <td>{{ mahasiswa.fakultas }}</td>
+            <td>{{ mahasiswa.prodi }}</td>
+            <td>{{ mahasiswa.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PASCASARJANA</title>
-</head>
-<body>
+<center>
     <h1>PASCASARJANA</h1>
+    <img src="\static\image\pascasarjana.png" height="200px">
+            <h2>Tentang Fakultas Pascasarjana</h2> 
+            <p style="font-family: 'times new roman'">Pada tahun 2012 Organisasi dan Tatakerja (OTK) Untirta mengalami perubahan sesuai dengan peraturan Menteri Pendidikan dan kebudayaan nomor 29 tahun 2012, pascasarjana Untirta sudah masuk dalam Organisasi dan Tata Kerja Universitas Sultan Ageng Tirtayasa hal ini berdampak positif karena Pascasarjana dapat mengembangkan diri sesuai dengan kebutuhan masyarakat dengan dukungan anggaran dari pemerintah.
+
+                Tuntutan masyarakat mendorong Pascasarjana Untirta agar membuka program studi lain sesuai dengan kebutuhan, pada tahun 2009 pascasarjana Untirta mengajukan Program Studi Magister Ilmu Hukum dan Magister Administrasi Publik. Pada tahun 2010 keluar ijin pertimbangan Dikti untuk Program Studi Ilmu Hukum dengan nomor 3327.20/D2.2/2010 dan ijin operasional dengan Nomor 158/E/O/2013. Pada tahun 2014, Pascasarjana Untirta diberi mandat untuk menyelenggarakan Program Studi Magister Administrasi Publik dan Program Studi Ilmu Administrasi melalui Surat Dirjen DIKTI Kementerian Pendidikan dan Kebudayaan nomor 343/E. E2/KL/2014 tentang Mandat penyelenggaraan program studi pada Universitas Sultan Ageng Tirtayasa. Sumber daya manusia Untirta semakin bertambah, kualifikasi dosen lulusan S-3, semakin mewarnai berbagai program studi. Pembukaan program studi untuk jenjang magister semakin jadi tantangan. Tantangan ini terus diubah menjadi peluang. pada tahun 2014 Untirta mendapatkan ijin pertimbangan nomor 710/E.22/KL/2014 untuk Program Studi Magister Manajemen dan nomor 815/E2.2/KL/2014 untuk Program Studi Akuntansi. Tahun 2014 ini juga beberapa program studi lain siap mengajukan pembukaan program studi S-2. Program studi Pendidikan Bahasa Inggris mendapat izin operasional Kemenristek Dikti No. 101/KPT/I/2016, tanggal 16 Februari 2016, Program studi Pendidikan Matematika mendapat izin operasional Kemenristek Dikti No. 281/KPT/I/2016 tanggal 29 Agustus 2016, dan Program studi Ilmu Pertanian mendapat izin operasional Kemenristek Dikti No. 428/KPT/I/2017 tanggal 1 Agustus 2017.</p>
+        </center>
     <p>Tersedia Jurusan :</p>
     <ul>
         <li>Doktor Pendidikan</li>
@@ -27,6 +27,79 @@
         <li>Pendidikan Matematika</li>
         <li>Teknologi Pendidikan</li>
     </ul>
-</body>
-</html>
+
+    <h1>Daftar Nama Dosen PASCASARJANA</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for dosen in dataDosen %}
+        <tr>
+            <td>{{ dosen.nip }}</td>
+            <td>{{ dosen.nama }}</td>
+            <td>{{ dosen.email }}</td>
+            <td>{{ dosen.tanggal_lahir }}</td>
+            <td>{{ dosen.foto }}</td>
+            <td>{{ dosen.fakultas }}</td>
+            <td>{{ dosen.prodi }}</td>
+            <td>{{ dosen.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Daftar Nama Staff PASCASARJANA</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Unit</th>
+            <th>Alamat</th>
+        </tr>
+        {% for staff in dataStaff %}
+        <tr>
+            <td>{{ staff.nip }}</td>
+            <td>{{ staff.nama }}</td>
+            <td>{{ staff.email }}</td>
+            <td>{{ staff.tanggal_lahir }}</td>
+            <td>{{ staff.foto }}</td>
+            <td>{{ staff.unit }}</td>
+            <td>{{ staff.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Daftar Nama Mahasiswa PASCASARJANA</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for mahasiswa in dataMahasiswa %}
+        <tr>
+            <td>{{ mahasiswa.nim }}</td>
+            <td>{{ mahasiswa.nama }}</td>
+            <td>{{ mahasiswa.email }}</td>
+            <td>{{ mahasiswa.tanggal_lahir }}</td>
+            <td>{{ mahasiswa.foto }}</td>
+            <td>{{ mahasiswa.fakultas }}</td>
+            <td>{{ mahasiswa.prodi }}</td>
+            <td>{{ mahasiswa.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

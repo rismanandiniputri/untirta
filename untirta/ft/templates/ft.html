@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FT</title>
-</head>
-<body>
+<center>
     <h1>FAKULTAS TEKNIK</h1>
+    <img src="\static\image\ft.png" height="200px">
+            <h2>Tentang Fakultas Teknik</h2> 
+            <p style="font-family: 'times new roman'">Fakultas Teknik Untirta merupakan salah satu fakultas yang menjadi cikal bakal berdirinya Untirta. Lahirnya Fakultas Teknik berawal dari gagasan jajaran direksi dan manajemen PT. Krakatau Steel (Bapak Ir. Djoko Subagyo dan Team). Fakultas Teknik terlahir sebagai wujud cita-cita masyarakat, ulama, cendekiawan dan para pemimpin se-wilayah Banten serta dengan dukungan PT. Krakatau Steel dan industri petrokimia di kawasan industri Cilegon.
+
+                Berdirinya Fakultas Teknik diawali dengan berdirinya Sekolah Tinggi Teknologi yang didirikan oleh PT. Krakatau Steel pada tahun 1982 dengan ijin penyelenggaraan untuk tingkat Sarjana Muda (Non Gelar) dari Kopertis Wilayah IV Jawa Barat Nomor: 040/1982. Kemudian pada tahun 1984 berdasarkan Surat Keputusan Menteri Pendidikan dan Kebudayaan RI Nomor: 0596/O/1984, Sekolah Tinggi Teknologi menggabungkan diri ke dalam Universitas Tirtayasa Banten.
+                
+                Selanjutnya pada tanggal 13 Oktober 1999 keluar Keputusan Presiden Republik Indonesia No. 130 tentang Persiapan Pendirian Universitas Negeri Sultan Ageng Tirtayasa. Dengan keluarnya Surat Keputusan Presiden Republik Indonesia Nomor 32 tanggal 19 Maret tahun 2001 maka Universitas Sultan Ageng Tirtayasa yang menaungi Fakultas Teknik menjadi Perguruan Tinggi Negeri di lingkungan Departemen Pendidikan Nasional. Sesuai dengan peralihan status Universitas Tirtayasa (semula swasta) menjadi Universitas Sultan Ageng Tirtayasa dengan status sebagai Perguruan Tinggi Negeri (PTN) di lingkungan Depdiknas, maka pola pengelolaan kelembagaan secara otomatis mengikuti semua ketentuan dari Departemen Pendidikan Nasional.
+                
+                Sampai saat ini, Fakultas Teknik Untirta terdiri dari 6 jurusan Strata I yaitu Teknik Mesin, Teknik Elektro, Teknik Metalurgi, Teknik Industri, Teknik Kimia dan Teknik Sipil. Semua jurusan telah memperoleh akreditasi dari Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT);</p>
+        </center>
     <p>Tersedia Jurusan :</p>
     <ul>
         <li>Teknik Elektro</li>
@@ -20,6 +24,79 @@
         <li>Teknik Metalurgi</li>
         <li>Teknik Sipil</li>
     </ul>
-</body>
-</html>
+
+    <h1>Daftar Nama Dosen FT</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for dosen in dataDosen %}
+        <tr>
+            <td>{{ dosen.nip }}</td>
+            <td>{{ dosen.nama }}</td>
+            <td>{{ dosen.email }}</td>
+            <td>{{ dosen.tanggal_lahir }}</td>
+            <td>{{ dosen.foto }}</td>
+            <td>{{ dosen.fakultas }}</td>
+            <td>{{ dosen.prodi }}</td>
+            <td>{{ dosen.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Daftar Nama Staff FT</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Unit</th>
+            <th>Alamat</th>
+        </tr>
+        {% for staff in dataStaff %}
+        <tr>
+            <td>{{ staff.nip }}</td>
+            <td>{{ staff.nama }}</td>
+            <td>{{ staff.email }}</td>
+            <td>{{ staff.tanggal_lahir }}</td>
+            <td>{{ staff.foto }}</td>
+            <td>{{ staff.unit }}</td>
+            <td>{{ staff.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Daftar Nama Mahasiswa FT</h1>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Tanggal Lahir</th>
+            <th>Foto</th>
+            <th>Fakultas</th>
+            <th>Prodi</th>
+            <th>Alamat</th>
+        </tr>
+        {% for mahasiswa in dataMahasiswa %}
+        <tr>
+            <td>{{ mahasiswa.nim }}</td>
+            <td>{{ mahasiswa.nama }}</td>
+            <td>{{ mahasiswa.email }}</td>
+            <td>{{ mahasiswa.tanggal_lahir }}</td>
+            <td>{{ mahasiswa.foto }}</td>
+            <td>{{ mahasiswa.fakultas }}</td>
+            <td>{{ mahasiswa.prodi }}</td>
+            <td>{{ mahasiswa.alamat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
